@@ -3,8 +3,8 @@ Alle Objekte sollen mit dem Kürzel ZLJND beginnen (Z ist Pflicht, LJND = Lauren
 Tabellen:
 
 ZLJND_EMPLOYEE
-ZLJND_VACATION_REQUEST
-ZLJND_VACATION_ENTITLEMENT
+ZLJND_VAC_REQ
+ZLJND_VAC_ENT
 
 Datentypen:
 
