@@ -1,4 +1,4 @@
-Alle Objekte sollen mit dem Kürzel ZLJND beginnen (Z ist Pflicht, LJND = Laurent, Jonas, Niklas, Dominik)
+Alle Objekte sollen mit dem Kürzel ZLJND beginnen (Z ist Pflicht, LJND = Laurenz, Jonas, Niklas, Dominik)
 
 Tabellen:
 
