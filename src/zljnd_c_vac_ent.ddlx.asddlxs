@@ -1,0 +1,24 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:
+{
+  typeNamePlural: 'Vacation Entitlements',
+  typeName: 'Vacation Entitlement',
+  title.value: 'VacationEntitlementUuid'
+}
+annotate entity ZLJND_C_VAC_ENT with
+{
+  /*
+  VacationEntitlementUuid;
+  EmployeeUuid;
+  CurrentYear;
+  RemainingAnnualLeave;
+  CreatedBy;
+  CreatedAt;
+  LastChangedBy;
+  LastChangedAt;
+  */
+
+  /* Associations */
+  //_employee;
+
+}

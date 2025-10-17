@@ -1,0 +1,25 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo:
+{
+  typeNamePlural: 'Vacation Requests',
+  typeName: 'Vacation Request',
+  title.value: 'VacationRequestUuid'
+}
+annotate entity ZLJND_C_VAC_REQ with
+{
+  /*
+      VacationRequestUuid;
+      ApplicantUuid;
+      ApproverUuid;
+      StartDate;
+      EndDate;
+      VacationDays;
+      Details;
+      Status;
+      CreatedBy;
+      CreatedAt;
+      LastChangedBy;
+      LastChangedAt;
+      */
+
+}
