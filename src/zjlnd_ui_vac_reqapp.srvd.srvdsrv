@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defintion Vacation Request'
+define service ZJLND_UI_VAC_REQApp {
+  expose ZLJND_C_EMPLOYEE as VACATIONREQUEST;
+}
