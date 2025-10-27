@@ -1,13 +1,12 @@
-Alle Objekte sollen mit dem Kürzel ZLJND beginnen (Z ist Pflicht, LJND = Laurenz, Jonas, Niklas, Dominik)
+## Namenskonvention für Objekte
 
-Tabellen:
+Alle Objekte sollen mit dem Kürzel **ZLJND** beginnen:
 
-ZLJND_EMPLOYEE
-ZLJND_VAC_REQ
-ZLJND_VAC_ENT
+- **Z** ist Pflichtbestandteil
+- **LJND** steht für: Laurenz, Jonas, Niklas, Dominik
 
-Datentypen:
+### Tabellen
 
-ZLJND_NUMC6
-ZLJND_CHAR40
-ZLJND_DATS8
+- `ZLJND_EMPLOYEE`
+- `ZLJND_VAC_REQ`
+- `ZLJND_VAC_ENT`
