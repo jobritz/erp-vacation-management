@@ -3,22 +3,39 @@
 {
   typeNamePlural: 'Vacation Entitlements',
   typeName: 'Vacation Entitlement',
-  title.value: 'VacationEntitlementUuid'
+  title.value: 'CurrentYear'
 }
 annotate entity ZLJND_C_VAC_ENT with
 {
-  /*
-  VacationEntitlementUuid;
-  EmployeeUuid;
-  CurrentYear;
-  RemainingAnnualLeave;
-  CreatedBy;
-  CreatedAt;
-  LastChangedBy;
-  LastChangedAt;
-  */
+    @UI.facet:
+  [
+      { position: 10, targetQualifier: 'VacationEntitlements', label: 'Vacation Entitlements', type: #FIELDGROUP_REFERENCE },
+      { position: 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
+  ]
 
-  /* Associations */
-  //_employee;
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]  
+  VacationEntitlementUuid;
+  
+  //EmployeeUuid;
+  
+  @UI.fieldGroup: [{ position: 10, qualifier: 'VacationEntitlements' }]
+  @UI.lineItem: [{ position: 10 }] 
+  CurrentYear;
+  
+  @UI.fieldGroup: [{ position: 20, qualifier: 'VacationEntitlements' }]
+  @UI.lineItem: [{ position: 20 }] 
+  RemainingAnnualLeave;
+  
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
+  CreatedBy;
+  
+  @UI.fieldGroup: [{ position: 30, qualifier: 'AdminData' }]
+  CreatedAt;
+  
+  @UI.fieldGroup: [{ position: 40, qualifier: 'AdminData' }]
+  LastChangedBy;
+  
+  @UI.fieldGroup: [{ position: 50, qualifier: 'AdminData' }]
+  LastChangedAt;
 
 }

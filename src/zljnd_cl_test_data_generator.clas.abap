@@ -152,6 +152,130 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     GET TIME STAMP FIELD ls_vac_ent-last_changed_at.
     APPEND ls_vac_ent TO lt_vac_ent.
 
+    " Vacation Requests
+    ls_vac_req-client = sy-mandt.
+    ls_vac_req-created_by = 'GENERATOR'.
+    ls_vac_req-last_changed_by = 'GENERATOR'.
+    ls_vac_req-applicant_uuid = ls_hans_maier-employee_uuid.
+    ls_vac_req-start_date = '20220701'.
+    ls_vac_req-end_date = '20220710'.
+    ls_vac_req-vacation_days = '8'.
+    ls_vac_req-approver_uuid = ls_lisa_mueller-employee_uuid.
+    ls_vac_req-details = 'Sommerurlaub'.
+    ls_vac_req-status = 'G'.
+    TRY.
+        ls_vac_req-vacation_request_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+      CATCH cx_uuid_error.
+        "handle exception
+    ENDTRY.
+    GET TIME STAMP FIELD ls_vac_req-created_at.
+    GET TIME STAMP FIELD ls_vac_req-last_changed_at.
+    APPEND ls_vac_req TO lt_vac_req.
+
+    ls_vac_req-client = sy-mandt.
+    ls_vac_req-created_by = 'GENERATOR'.
+    ls_vac_req-last_changed_by = 'GENERATOR'.
+    ls_vac_req-applicant_uuid = ls_hans_maier-employee_uuid.
+    ls_vac_req-start_date = '20221227'.
+    ls_vac_req-end_date = '20221230'.
+    ls_vac_req-vacation_days = '4'.
+    ls_vac_req-approver_uuid = ls_lisa_mueller-employee_uuid.
+    ls_vac_req-details = 'Weihnachtsurlaub'.
+    ls_vac_req-status = 'A'.
+    TRY.
+        ls_vac_req-vacation_request_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+      CATCH cx_uuid_error.
+        "handle exception
+    ENDTRY.
+    GET TIME STAMP FIELD ls_vac_req-created_at.
+    GET TIME STAMP FIELD ls_vac_req-last_changed_at.
+    APPEND ls_vac_req TO lt_vac_req.
+
+    ls_vac_req-client = sy-mandt.
+    ls_vac_req-created_by = 'GENERATOR'.
+    ls_vac_req-last_changed_by = 'GENERATOR'.
+    ls_vac_req-applicant_uuid = ls_hans_maier-employee_uuid.
+    ls_vac_req-start_date = '20221228'.
+    ls_vac_req-end_date = '20221230'.
+    ls_vac_req-vacation_days = '3'.
+    ls_vac_req-approver_uuid = ls_lisa_mueller-employee_uuid.
+    ls_vac_req-details = 'Weihnachtsurlaub (2. Versuch)'.
+    ls_vac_req-status = 'G'.
+    TRY.
+        ls_vac_req-vacation_request_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+      CATCH cx_uuid_error.
+        "handle exception
+    ENDTRY.
+    GET TIME STAMP FIELD ls_vac_req-created_at.
+    GET TIME STAMP FIELD ls_vac_req-last_changed_at.
+    APPEND ls_vac_req TO lt_vac_req.
+
+    ls_vac_req-client = sy-mandt.
+    ls_vac_req-created_by = 'GENERATOR'.
+    ls_vac_req-last_changed_by = 'GENERATOR'.
+    ls_vac_req-applicant_uuid = ls_hans_maier-employee_uuid.
+    ls_vac_req-start_date = '20230527'.
+    ls_vac_req-end_date = '20230614'.
+    ls_vac_req-vacation_days = '14'.
+    ls_vac_req-approver_uuid = ls_lisa_mueller-employee_uuid.
+    ls_vac_req-details = ''.
+    ls_vac_req-status = 'G'.
+    TRY.
+        ls_vac_req-vacation_request_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+      CATCH cx_uuid_error.
+        "handle exception
+    ENDTRY.
+    GET TIME STAMP FIELD ls_vac_req-created_at.
+    GET TIME STAMP FIELD ls_vac_req-last_changed_at.
+    APPEND ls_vac_req TO lt_vac_req.
+
+    ls_vac_req-client = sy-mandt.
+    ls_vac_req-created_by = 'GENERATOR'.
+    ls_vac_req-last_changed_by = 'GENERATOR'.
+    ls_vac_req-applicant_uuid = ls_hans_maier-employee_uuid.
+    ls_vac_req-start_date = '20231220'.
+    ls_vac_req-end_date = '20221231'.
+    ls_vac_req-vacation_days = '8'.
+    ls_vac_req-approver_uuid = ls_lisa_mueller-employee_uuid.
+    ls_vac_req-details = 'Winterurlaub'.
+    ls_vac_req-status = 'B'.
+    TRY.
+        ls_vac_req-vacation_request_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+      CATCH cx_uuid_error.
+        "handle exception
+    ENDTRY.
+    GET TIME STAMP FIELD ls_vac_req-created_at.
+    GET TIME STAMP FIELD ls_vac_req-last_changed_at.
+    APPEND ls_vac_req TO lt_vac_req.
+
+    ls_vac_req-client = sy-mandt.
+    ls_vac_req-created_by = 'GENERATOR'.
+    ls_vac_req-last_changed_by = 'GENERATOR'.
+    ls_vac_req-applicant_uuid = ls_petra_schmid-employee_uuid.
+    ls_vac_req-start_date = '20231227'.
+    ls_vac_req-end_date = '20231231'.
+    ls_vac_req-vacation_days = '3'.
+    ls_vac_req-approver_uuid = ls_hans_maier-employee_uuid.
+    ls_vac_req-details = 'Weihnachtsurlaub'.
+    ls_vac_req-status = 'B'.
+    TRY.
+        ls_vac_req-vacation_request_uuid = cl_system_uuid=>create_uuid_x16_static(  ).
+      CATCH cx_uuid_error.
+        "handle exception
+    ENDTRY.
+    GET TIME STAMP FIELD ls_vac_req-created_at.
+    GET TIME STAMP FIELD ls_vac_req-last_changed_at.
+    APPEND ls_vac_req TO lt_vac_req.
+
+    INSERT zljnd_employee FROM TABLE @lt_employee.
+    out->write( |Inserted Employees: { sy-dbcnt } | ).
+
+    INSERT zljnd_vac_ent FROM TABLE @lt_vac_ent.
+    out->write( |Inserted Vacation Entitlements: { sy-dbcnt } | ).
+
+    INSERT zljnd_vac_req FROM TABLE @lt_vac_req.
+    out->write( |Inserted Vacation Requests: { sy-dbcnt } | ).
+
   ENDMETHOD.
 
 ENDCLASS.
