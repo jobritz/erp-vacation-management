@@ -1,10 +1,9 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'Basic View Vacation Request'
 
-define view entity ZLJND_R_VAC_REQ
+define view entity ZLJND2_R_VAC_REQ
   as select from zljnd_vac_req
-  association to parent ZLJND_R_EMPLOYEE as _employee     on $projection.ApplicantUuid = _employee.EmployeeUuid
-  association to ZLJND_I_EMPLOYEETEXT    as _employeetext on $projection.ApproverUuid = _employeetext.employee_uuid
+  association to parent ZLJND2_R_EMPLOYEE as _employee on $projection.ApplicantUuid = _employee.EmployeeUuid
 {
   key vacation_request_uuid as VacationRequestUuid,
       applicant_uuid        as ApplicantUuid,
@@ -20,8 +19,7 @@ define view entity ZLJND_R_VAC_REQ
       created_at            as CreatedAt,
       last_changed_by       as LastChangedBy,
       last_changed_at       as LastChangedAt,
-
-      _employee,
-      _employeetext.Name    as ApproverName
-
+      
+      _employee
+      
 }

@@ -2,12 +2,12 @@
 @EndUserText.label: 'Projection View Vacation Request'
 @Metadata.allowExtensions: true
 
-define view entity ZLJND_C_VAC_REQ
-  as projection on ZLJND_R_VAC_REQ
+define view entity ZLJND2_C_VAC_REQ
+  as projection on ZLJND2_R_VAC_REQ
 {
   key VacationRequestUuid,
       ApplicantUuid,
-      @ObjectModel.text.element: [ 'ApproverName' ]
+      //@ObjectModel.text.element: [ 'ApproverName' ]
       ApproverUuid,
       StartDate,
       EndDate,
@@ -17,9 +17,9 @@ define view entity ZLJND_C_VAC_REQ
       CreatedBy,
       CreatedAt,
       LastChangedBy,
-      LastChangedAt,
+      LastChangedAt
       
-      ApproverName,
+      //ApproverName,
       
-      _employee : redirected to parent ZLJND_C_EMPLOYEE
+    //  _employee : redirected to parent ZLJND2_C_EMPLOYEE
 }

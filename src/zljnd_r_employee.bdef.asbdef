@@ -1,0 +1,85 @@
+managed implementation in class zbp_ljnd_r_employee unique;
+strict ( 2 );
+
+define behavior for ZLJND_R_EMPLOYEE //alias <alias_name>
+persistent table zljnd_employee
+lock master
+authorization master ( instance )
+{
+  field ( readonly, numbering : managed ) EmployeeUuid;
+
+  association _vacationentitlement {  }
+  association _vacationrequest { create; }
+
+  mapping for zljnd_employee corresponding
+    {
+      EmployeeUuid  = employee_uuid;
+      EmployeeId    = employee_id;
+      FirstName     = first_name;
+      LastName      = last_name;
+      EntryDate     = entry_date;
+      CreatedAt     = created_at;
+      CreatedBy     = created_by;
+      LastChangeAt  = last_change_at;
+      LastChangedBy = last_changed_by;
+    }
+}
+
+define behavior for ZLJND_R_VAC_ENT //alias <alias_name>
+persistent table zljnd_vac_ent
+lock dependent by _employee
+authorization dependent by _employee
+{
+  //update;
+  //delete;
+  field ( readonly, numbering : managed ) VacationEntitlementUuid;
+  field ( readonly ) EmployeeUuid;
+  association _employee;
+
+  mapping for zljnd_vac_ent corresponding
+    {
+      VacationEntitlementUuid = vacation_entitlement_uuid;
+      EmployeeUuid            = employee_uuid;
+      CurrentYear             = current_year;
+      RemainingAnnualLeave    = remaining_annual_leave;
+      CreatedAt               = created_at;
+      CreatedBy               = created_by;
+      LastChangedAt           = last_changed_at;
+      LastChangedBy           = last_changed_by;
+    }
+}
+
+define behavior for ZLJND_R_VAC_REQ //alias <alias_name>
+persistent table zljnd_vac_req
+lock dependent by _employee
+authorization dependent by _employee
+//etag master <field_name>
+{
+  //update;
+  //delete;
+  field ( readonly, numbering : managed ) VacationRequestUuid;
+  field ( readonly ) ApplicantUuid;
+  field ( readonly ) VacationDays;
+  field ( readonly ) Status;
+  field ( mandatory : create ) ApproverUuid;
+  field ( mandatory : create ) StartDate;
+  field ( mandatory : create ) EndDate;
+
+  association _employee;
+
+  mapping for zljnd_vac_req corresponding
+    {
+      VacationRequestUuid = vacation_request_uuid;
+      ApplicantUuid       = applicant_uuid;
+      ApproverUuid        = approver_uuid;
+      StartDate           = start_date;
+      EndDate             = end_date;
+      VacationDays        = vacation_days;
+      Details             = details;
+      Status              = status;
+      CreatedAt           = created_at;
+      CreatedBy           = created_by;
+      LastChangedAt       = last_changed_at;
+      LastChangedBy       = last_changed_by;
+    }
+}

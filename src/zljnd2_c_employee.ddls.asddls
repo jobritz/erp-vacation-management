@@ -3,9 +3,9 @@
 @Search.searchable: true
 @Metadata.allowExtensions: true
 
-define root view entity ZLJND_C_EMPLOYEE
+define root view entity ZLJND2_C_EMPLOYEE
   provider contract transactional_query
-  as projection on ZLJND_R_EMPLOYEE
+  as projection on ZLJND2_R_EMPLOYEE
 {
   key EmployeeUuid,
       EmployeeId,
@@ -22,9 +22,10 @@ define root view entity ZLJND_C_EMPLOYEE
       CreatedBy,
       CreatedAt,
       LastChangedBy,
-      LastChangeAt,
-
-      _vacationentitlement : redirected to composition child ZLJND_C_VAC_ENT,
-      _vacationrequest     : redirected to composition child ZLJND_C_VAC_REQ
-
+      LastChangeAt
 }
+
+      
+     // _vacationrequest     : redirected to composition child ZLJND2_C_VAC_REQ
+
+

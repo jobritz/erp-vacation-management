@@ -1,0 +1,5 @@
+CLASS zbp_ljnd_r_employee DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zljnd_r_employee.
+ENDCLASS.
+
+CLASS zbp_ljnd_r_employee IMPLEMENTATION.
+ENDCLASS.

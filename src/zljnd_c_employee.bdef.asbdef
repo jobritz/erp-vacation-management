@@ -1,0 +1,21 @@
+projection;
+strict ( 2 );
+
+define behavior for ZLJND_C_EMPLOYEE //alias <alias_name>
+{
+
+  use association _vacationentitlement { }
+  use association _vacationrequest { create; }
+}
+
+define behavior for ZLJND_C_VAC_ENT //alias <alias_name>
+{
+
+  use association _employee;
+}
+
+define behavior for ZLJND_C_VAC_REQ //alias <alias_name>
+{
+
+  use association _employee;
+}
