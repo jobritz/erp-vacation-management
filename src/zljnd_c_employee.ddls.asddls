@@ -15,6 +15,7 @@ define root view entity ZLJND_C_EMPLOYEE
       @Search.fuzzinessThreshold: 0.7
       LastName,
       EntryDate,
+      EmployeeName,
 
       /* Administrative Data */
       CreatedBy,

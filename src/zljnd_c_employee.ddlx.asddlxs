@@ -4,7 +4,8 @@
 {
     typeNamePlural: 'Employees',
     typeName: 'Employee',
-    title.value: 'LastName'
+    title.value: 'EmployeeName',
+    description.value: 'EmployeeId'
 }
 
 annotate entity ZLJND_C_EMPLOYEE with
