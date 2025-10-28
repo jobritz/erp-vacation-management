@@ -3,8 +3,9 @@
 
 define view entity ZLJND_R_VAC_REQ
   as select from zljnd_vac_req
-  association to parent ZLJND_R_EMPLOYEE as _employee     on $projection.ApplicantUuid = _employee.EmployeeUuid
-  association to ZLJND_I_EMPLOYEETEXT    as _employeetext on $projection.ApproverUuid = _employeetext.employee_uuid
+  association to parent ZLJND_R_EMPLOYEE as _employee      on $projection.ApplicantUuid = _employee.EmployeeUuid
+  association to ZLJND_I_EMPLOYEETEXT    as _approvertext  on $projection.ApproverUuid = _approvertext.employee_uuid
+  association to ZLJND_I_EMPLOYEETEXT    as _applicanttext on $projection.ApplicantUuid = _applicanttext.employee_uuid
 {
   key vacation_request_uuid as VacationRequestUuid,
       applicant_uuid        as ApplicantUuid,
@@ -22,6 +23,7 @@ define view entity ZLJND_R_VAC_REQ
       last_changed_at       as LastChangedAt,
 
       _employee,
-      _employeetext.Name    as ApproverName
+      _approvertext.Name    as ApproverName,
+      _applicanttext.Name   as ApplicantName
 
 }

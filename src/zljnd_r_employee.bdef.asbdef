@@ -1,14 +1,14 @@
 managed implementation in class zbp_ljnd_r_employee unique;
 strict ( 2 );
 
-define behavior for ZLJND_R_EMPLOYEE //alias <alias_name>
+define behavior for ZLJND_R_EMPLOYEE
 persistent table zljnd_employee
 lock master
 authorization master ( instance )
 {
   field ( readonly, numbering : managed ) EmployeeUuid;
 
-  association _vacationentitlement {  }
+  association _vacationentitlement { }
   association _vacationrequest { create; }
 
   mapping for zljnd_employee corresponding
@@ -25,13 +25,11 @@ authorization master ( instance )
     }
 }
 
-define behavior for ZLJND_R_VAC_ENT //alias <alias_name>
+define behavior for ZLJND_R_VAC_ENT
 persistent table zljnd_vac_ent
 lock dependent by _employee
 authorization dependent by _employee
 {
-  //update;
-  //delete;
   field ( readonly, numbering : managed ) VacationEntitlementUuid;
   field ( readonly ) EmployeeUuid;
   association _employee;
@@ -49,21 +47,17 @@ authorization dependent by _employee
     }
 }
 
-define behavior for ZLJND_R_VAC_REQ //alias <alias_name>
+define behavior for ZLJND_R_VAC_REQ
 persistent table zljnd_vac_req
 lock dependent by _employee
 authorization dependent by _employee
-//etag master <field_name>
 {
-  //update;
-  //delete;
+  update;
+  delete;
+
   field ( readonly, numbering : managed ) VacationRequestUuid;
-  field ( readonly ) ApplicantUuid;
-  field ( readonly ) VacationDays;
-  field ( readonly ) Status;
-  field ( mandatory : create ) ApproverUuid;
-  field ( mandatory : create ) StartDate;
-  field ( mandatory : create ) EndDate;
+  field ( readonly ) ApplicantUuid, CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, VacationDays, Status;
+  field ( mandatory : create ) ApproverUuid, StartDate, EndDate;
 
   association _employee;
 

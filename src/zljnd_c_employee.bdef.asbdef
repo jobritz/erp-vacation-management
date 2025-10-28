@@ -17,5 +17,8 @@ define behavior for ZLJND_C_VAC_ENT //alias <alias_name>
 define behavior for ZLJND_C_VAC_REQ //alias <alias_name>
 {
 
+  use update;
+  use delete;
+
   use association _employee;
 }

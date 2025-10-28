@@ -6,8 +6,10 @@ define view entity ZLJND_C_VAC_REQ
   as projection on ZLJND_R_VAC_REQ
 {
   key VacationRequestUuid,
+      @ObjectModel.text.element: [ 'ApplicantName' ]
       ApplicantUuid,
       @ObjectModel.text.element: [ 'ApproverName' ]
+      @Consumption.valueHelpDefinition: [{ entity: { name: 'ZLJND_I_ApproverVH', element: 'EmployeeUuid' } }]
       ApproverUuid,
       StartDate,
       EndDate,
@@ -18,8 +20,9 @@ define view entity ZLJND_C_VAC_REQ
       CreatedAt,
       LastChangedBy,
       LastChangedAt,
-      
+
       ApproverName,
-      
+      ApplicantName,
+
       _employee : redirected to parent ZLJND_C_EMPLOYEE
 }
