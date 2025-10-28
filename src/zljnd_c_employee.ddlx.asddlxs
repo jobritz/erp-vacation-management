@@ -14,8 +14,9 @@ annotate entity ZLJND_C_EMPLOYEE with
   @UI.facet:
   [
     { position: 10, targetQualifier: 'EmployeeDetails', label: 'Employee Details', type: #FIELDGROUP_REFERENCE },
-    { position: 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE },
-    { position: 30, targetElement: '_vacationentitlement', label: 'Vacation Entitlements', type: #LINEITEM_REFERENCE }
+    { position: 20, targetElement: '_vacationentitlement', label: 'Vacation Entitlements', type: #LINEITEM_REFERENCE },
+    { position: 30, targetElement: '_vacationrequest', label: 'Vacation Requests', type: #LINEITEM_REFERENCE },
+    { position: 40, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
   ]
 
   @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]

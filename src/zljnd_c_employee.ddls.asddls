@@ -22,6 +22,7 @@ define root view entity ZLJND_C_EMPLOYEE
       LastChangedBy,
       LastChangeAt,
       
-      _vacationentitlement : redirected to composition child ZLJND_C_VAC_ENT
+      _vacationentitlement : redirected to composition child ZLJND_C_VAC_ENT,
+      _vacationrequest : redirected to composition child ZLJND_C_VAC_REQ
       
 }

@@ -3,6 +3,7 @@
 define root view entity ZLJND_R_EMPLOYEE
   as select from zljnd_employee
   composition [0..*] of ZLJND_R_VAC_ENT as _vacationentitlement
+  composition [0..*] of ZLJND_R_VAC_REQ as _vacationrequest
 {
   key employee_uuid   as EmployeeUuid,
       employee_id     as EmployeeId,
@@ -16,5 +17,6 @@ define root view entity ZLJND_R_EMPLOYEE
       last_changed_by as LastChangedBy,
       last_change_at  as LastChangeAt,
       
-      _vacationentitlement
+      _vacationentitlement,
+      _vacationrequest
 }

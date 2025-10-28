@@ -6,9 +6,14 @@
 "ZLJND_R_VAC_REQ"
 ],
 "ASSOCIATED":
-[],
+[
+"ZLJND_C_EMPLOYEE",
+"ZLJND_R_EMPLOYEE"
+],
 "BASE":
-[],
+[
+"ZLJND_R_VAC_REQ"
+],
 "ANNO_REF":
 [],
 "SCALAR_FUNCTION":

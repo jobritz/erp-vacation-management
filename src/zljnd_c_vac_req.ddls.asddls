@@ -3,7 +3,7 @@
 @Search.searchable: true
 @Metadata.allowExtensions: true
 
-define root view entity ZLJND_C_VAC_REQ
+define view entity ZLJND_C_VAC_REQ
   as projection on ZLJND_R_VAC_REQ
 {
   key VacationRequestUuid,
@@ -19,5 +19,7 @@ define root view entity ZLJND_C_VAC_REQ
       CreatedBy,
       CreatedAt,
       LastChangedBy,
-      LastChangedAt
+      LastChangedAt,
+      
+      _employee : redirected to parent ZLJND_C_EMPLOYEE
 }

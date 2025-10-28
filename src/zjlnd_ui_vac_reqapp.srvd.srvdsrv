@@ -1,4 +1,6 @@
 @EndUserText.label: 'Service Defintion Vacation Request'
 define service ZJLND_UI_VAC_REQApp {
-  expose ZLJND_C_EMPLOYEE as ZLJND_VACATIONREQUEST;
+  expose ZLJND_C_EMPLOYEE as ZLJND_EMPLOYEES;
+  expose ZLJND_C_VAC_ENT  as ZLJND_VACATIONENTITLEMENTS;
+  expose ZLJND_C_VAC_REQ  as ZLJND_VACATIONREQUESTS;
 }

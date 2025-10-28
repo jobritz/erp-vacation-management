@@ -42,7 +42,7 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     ls_hans_maier-client = sy-mandt.
     ls_hans_maier-created_by = 'GENERATOR'.
     ls_hans_maier-last_changed_by = 'GENERATOR'.
-    ls_hans_maier-employee_id = '1'.
+    ls_hans_maier-employee_id = '000001'.
     ls_hans_maier-first_name = 'Hans'.
     ls_hans_maier-last_name = 'Maier'.
     ls_hans_maier-entry_date = '20000501'.
@@ -90,7 +90,7 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     ls_lisa_mueller-client = sy-mandt.
     ls_lisa_mueller-created_by = 'GENERATOR'.
     ls_lisa_mueller-last_changed_by = 'GENERATOR'.
-    ls_lisa_mueller-employee_id = '2'.
+    ls_lisa_mueller-employee_id = '000002'.
     ls_lisa_mueller-first_name = 'Lisa'.
     ls_lisa_mueller-last_name = 'Müller'.
     ls_lisa_mueller-entry_date = '20100701'.
@@ -123,7 +123,7 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     ls_petra_schmid-client = sy-mandt.
     ls_petra_schmid-created_by = 'GENERATOR'.
     ls_petra_schmid-last_changed_by = 'GENERATOR'.
-    ls_petra_schmid-employee_id = '3'.
+    ls_petra_schmid-employee_id = '000003'.
     ls_petra_schmid-first_name = 'Petra'.
     ls_petra_schmid-last_name = 'Schmid'.
     ls_petra_schmid-entry_date = '20231001'.

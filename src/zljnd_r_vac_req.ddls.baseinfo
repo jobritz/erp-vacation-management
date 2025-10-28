@@ -6,7 +6,9 @@
 "ZLJND_VAC_REQ"
 ],
 "ASSOCIATED":
-[],
+[
+"ZLJND_R_EMPLOYEE"
+],
 "BASE":
 [],
 "ANNO_REF":
