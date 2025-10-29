@@ -8,9 +8,9 @@ Alle offenen Anforderungen stehen als Issues in diesem Repository. Wer eine dies
 
 ## AppDesign.jpg
 
-Diese Datei ist eine grobe Aufzeichnung der zu erstellenden SAP Fiori Apps (ohne Gewähr). Dabei ist die erste App durch den großen grünen Rahmen und die zweite App durch den großen gelben Rahmen abgegrenzt.
+Diese Datei ist eine grobe Aufzeichnung der zu erstellenden SAP Fiori Apps (ohne Gewähr). Dabei ist die erste App durch den großen grünen Rahmen und die zweite App durch den großen gelben Rahmen abgegrenzt:
 
-![App Design](AppDesign.jpg).
+![App Design](AppDesign.jpg)
 
 ## Namenskonvention für Objekte
 
