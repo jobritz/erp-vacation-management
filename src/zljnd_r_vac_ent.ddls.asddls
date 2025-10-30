@@ -4,7 +4,6 @@
 define view entity ZLJND_R_VAC_ENT
   as select from zljnd_vac_ent
   association to parent ZLJND_R_EMPLOYEE as _employee on $projection.EmployeeUuid = _employee.EmployeeUuid
-  
 {
   key vacation_entitlement_uuid as VacationEntitlementUuid,
       employee_uuid             as EmployeeUuid,

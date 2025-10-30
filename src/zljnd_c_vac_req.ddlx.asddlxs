@@ -30,6 +30,7 @@ annotate entity ZLJND_C_VAC_REQ with
   EndDate;
   
   @UI.fieldGroup: [{ position: 20, qualifier: 'UserData', label: 'Approver' }]
+  @UI.lineItem: [{ position: 60, label: 'Approver' }]
   ApproverUuid;
 
   @UI.fieldGroup: [{ position: 30, qualifier: 'VacationRequests' }]
