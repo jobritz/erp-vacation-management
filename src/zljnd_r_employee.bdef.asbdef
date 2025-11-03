@@ -11,6 +11,7 @@ authorization master ( instance )
   association _vacationentitlement { }
   association _vacationrequest { create; }
 
+
   mapping for zljnd_employee corresponding
     {
       EmployeeUuid  = employee_uuid;
@@ -25,7 +26,7 @@ authorization master ( instance )
     }
 }
 
-define behavior for ZLJND_R_VAC_ENT
+define behavior for ZLJND_R_VAC_ENT alias VacationEntitlement
 persistent table zljnd_vac_ent
 lock dependent by _employee
 authorization dependent by _employee
@@ -47,13 +48,20 @@ authorization dependent by _employee
     }
 }
 
-define behavior for ZLJND_R_VAC_REQ
+define behavior for ZLJND_R_VAC_REQ alias VacationRequest
 persistent table zljnd_vac_req
 lock dependent by _employee
 authorization dependent by _employee
 {
+
   update;
   delete;
+
+  validation ValidateDates on save { create; update; }
+  validation NotEnoughVacationLeft on save { create; }
+
+  determination DetermineStatus on modify { create; update; }
+  determination DetermineDaysOff on modify { create; }
 
   field ( readonly, numbering : managed ) VacationRequestUuid;
   field ( readonly ) ApplicantUuid, CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, VacationDays, Status;

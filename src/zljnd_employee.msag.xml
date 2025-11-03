@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZLJND_EMPLOYEE</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Class for Employee App</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLJND_EMPLOYEE</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Begin date must be before end date</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLJND_EMPLOYEE</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>You do not have enough vacation days.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

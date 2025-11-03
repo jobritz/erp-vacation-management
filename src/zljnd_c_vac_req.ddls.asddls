@@ -7,7 +7,6 @@ define view entity ZLJND_C_VAC_REQ
 {
   key VacationRequestUuid,
       @ObjectModel.text.element: [ 'ApplicantName' ]
-      @UI.textArrangement: #TEXT_ONLY
       ApplicantUuid,
       @ObjectModel.text.element: [ 'ApproverName' ]
       @UI.textArrangement: #TEXT_ONLY
