@@ -61,11 +61,11 @@ authorization dependent by _employee
   validation NotEnoughVacationLeft on save { create; }
 
   determination DetermineStatus on modify { create; update; }
-  determination DetermineDaysOff on modify { create; }
+  determination DetermineDaysOff on modify { create; update; }
 
   field ( readonly, numbering : managed ) VacationRequestUuid;
   field ( readonly ) ApplicantUuid, CreatedAt, CreatedBy, LastChangedAt, LastChangedBy, VacationDays, Status;
-  field ( mandatory : create ) ApproverUuid, StartDate, EndDate;
+  field ( mandatory ) ApproverUuid, StartDate, EndDate;
 
   association _employee;
 

@@ -5,6 +5,7 @@
   typeName: 'Vacation Request',
   title.value: 'Details'
 }
+
 annotate entity ZLJND_C_VAC_REQ with
 {
 

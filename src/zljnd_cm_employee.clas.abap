@@ -36,7 +36,6 @@ METHODS constructor
     textid    LIKE if_t100_message=>t100key DEFAULT if_t100_message=>default_textid
     !previous LIKE previous OPTIONAL.
 
-
   PROTECTED SECTION.
   PRIVATE SECTION.
 ENDCLASS.
