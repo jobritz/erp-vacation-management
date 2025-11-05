@@ -1,0 +1,32 @@
+managed implementation in class ZXX_bp_travel unique;
+strict ( 2 );
+
+define behavior for ZLJND2_R_VAC_REQ alias VacationRequest
+persistent table zljnd_vac_req
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  update;
+
+
+
+  field ( readonly, numbering : managed ) VacationRequestUuid;
+
+  mapping for zljnd_vac_req corresponding
+    {
+      VacationRequestUuid = vacation_request_uuid;
+      ApplicantUuid       = applicant_uuid;
+      ApproverUuid        = approver_uuid;
+      StartDate           = start_date;
+      EndDate             = end_date;
+      VacationDays        = vacation_days;
+      Details             = details;
+      Status              = status;
+      /* Administrative Data */
+      CreatedBy           = created_by;
+      CreatedAt           = created_at;
+      LastChangedBy       = last_changed_by;
+      LastChangedAt       = last_changed_at;
+    }
+}

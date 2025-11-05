@@ -2,7 +2,7 @@ CLASS lhc_ZLJND_R_EMPLOYEE DEFINITION INHERITING FROM cl_abap_behavior_handler.
   PRIVATE SECTION.
 
     METHODS get_instance_authorizations FOR INSTANCE AUTHORIZATION
-      IMPORTING keys REQUEST requested_authorizations FOR zljnd_r_employee RESULT result.
+      IMPORTING keys REQUEST requested_authorizations FOR Employee RESULT result.
 
     METHODS validatedates FOR VALIDATE ON SAVE
       IMPORTING keys FOR VacationRequest~ValidateDates.
@@ -15,6 +15,9 @@ CLASS lhc_ZLJND_R_EMPLOYEE DEFINITION INHERITING FROM cl_abap_behavior_handler.
 
     METHODS determinedaysoff FOR DETERMINE ON MODIFY
       IMPORTING keys FOR VacationRequest~DetermineDaysOff.
+
+    METHODS DetermineRemainingDays FOR DETERMINE ON MODIFY
+      IMPORTING keys FOR VacationEntitlement~DetermineRemainingDays.
 
 ENDCLASS.
 
@@ -82,11 +85,9 @@ CLASS lhc_ZLJND_R_EMPLOYEE IMPLEMENTATION.
 
     LOOP AT requests REFERENCE INTO DATA(request).
 
-      DATA vacation_days TYPE i.
-
       TRY.
           DATA(calendar) = cl_fhc_calendar_runtime=>create_factorycalendar_runtime( 'SAP_DE_BW' ).
-          vacation_days = ( calendar->calc_workingdays_between_dates( iv_start = request->StartDate iv_end = request->EndDate ) + 1 ) .
+          DATA(vacation_days) = ( calendar->calc_workingdays_between_dates( iv_start = request->StartDate iv_end = request->EndDate ) + 1 ) .
         CATCH cx_fhc_runtime.
           CONTINUE.
       ENDTRY.
@@ -103,6 +104,44 @@ CLASS lhc_ZLJND_R_EMPLOYEE IMPLEMENTATION.
                              %control-VacationDays = if_abap_behv=>mk-on ) ).
 
     ENDLOOP.
+  ENDMETHOD.
+
+  METHOD determineremainingdays.
+
+    READ ENTITY IN LOCAL MODE zljnd_r_vac_ent
+    ALL FIELDS
+    WITH CORRESPONDING #( keys )
+    RESULT DATA(entitlements).
+
+    LOOP AT entitlements REFERENCE INTO DATA(entitlement).
+
+
+      READ ENTITY IN LOCAL MODE zljnd_r_vac_req
+      FIELDS ( VacationDays Status )
+      WITH CORRESPONDING #( keys )
+      RESULT DATA(requests).
+
+      DATA remaining_days TYPE i.
+
+      LOOP AT requests REFERENCE INTO DATA(request).
+        IF request->Status = 'G'.
+          remaining_days = remaining_days + request->VacationDays.
+        ENDIF.
+      ENDLOOP.
+
+      IF entitlement->RemainingDays = remaining_days.
+        CONTINUE.
+      ENDIF.
+
+      MODIFY ENTITY IN LOCAL MODE zljnd_r_vac_ent
+               UPDATE FIELDS ( RemainingDays )
+               WITH VALUE #( FOR key IN keys
+                             ( %tky         = key-%tky
+                               RemainingDays = 10
+                               %control-RemainingDays = if_abap_behv=>mk-on ) ).
+
+    ENDLOOP.
+
   ENDMETHOD.
 
 ENDCLASS.

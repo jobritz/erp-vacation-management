@@ -15,11 +15,13 @@ define view entity ZLJND_C_VAC_REQ
       EndDate,
       VacationDays,
       Details,
+      @ObjectModel.text.element: [ 'StatusText' ]
       Status,
       CreatedBy,
       CreatedAt,
       LastChangedBy,
       LastChangedAt,
+      StatusText,
 
       ApproverName,
       ApplicantName,

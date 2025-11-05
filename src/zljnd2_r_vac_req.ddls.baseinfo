@@ -3,12 +3,11 @@
 {
 "FROM":
 [
+"ZLJND_I_EMPLOYEETEXT",
 "ZLJND_VAC_REQ"
 ],
 "ASSOCIATED":
-[
-"ZLJND2_R_EMPLOYEE"
-],
+[],
 "BASE":
 [],
 "ANNO_REF":

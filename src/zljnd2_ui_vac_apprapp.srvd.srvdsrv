@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition App 2'
+define service ZLJND2_UI_VAC_APPRApp {
+  expose ZLJND2_C_VAC_REQ as VacReq;
+}

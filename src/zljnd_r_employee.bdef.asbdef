@@ -1,7 +1,7 @@
 managed implementation in class zbp_ljnd_r_employee unique;
 strict ( 2 );
 
-define behavior for ZLJND_R_EMPLOYEE
+define behavior for ZLJND_R_EMPLOYEE alias Employee
 persistent table zljnd_employee
 lock master
 authorization master ( instance )
@@ -10,7 +10,6 @@ authorization master ( instance )
 
   association _vacationentitlement { }
   association _vacationrequest { create; }
-
 
   mapping for zljnd_employee corresponding
     {
@@ -31,16 +30,21 @@ persistent table zljnd_vac_ent
 lock dependent by _employee
 authorization dependent by _employee
 {
+
+  update;
+
   field ( readonly, numbering : managed ) VacationEntitlementUuid;
-  field ( readonly ) EmployeeUuid;
+  field ( readonly ) EmployeeUuid, AnnualLeave, RemainingDays, PlannedDays;
   association _employee;
+
+  determination DetermineRemainingDays on modify { update; association _employee; }
 
   mapping for zljnd_vac_ent corresponding
     {
       VacationEntitlementUuid = vacation_entitlement_uuid;
       EmployeeUuid            = employee_uuid;
       CurrentYear             = current_year;
-      RemainingAnnualLeave    = remaining_annual_leave;
+      AnnualLeave             = annual_leave;
       CreatedAt               = created_at;
       CreatedBy               = created_by;
       LastChangedAt           = last_changed_at;

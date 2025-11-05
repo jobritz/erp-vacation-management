@@ -8,11 +8,14 @@ define view entity ZLJND_C_VAC_ENT
   key VacationEntitlementUuid,
       EmployeeUuid,
       CurrentYear,
-      RemainingAnnualLeave,
+      AnnualLeave,
       CreatedBy,
       CreatedAt,
       LastChangedBy,
       LastChangedAt,
+      RemainingDays,
+      PlannedDays,
+      BookedDays,
       
       _employee : redirected to parent ZLJND_C_EMPLOYEE
 }
