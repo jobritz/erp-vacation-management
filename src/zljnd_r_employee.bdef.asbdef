@@ -31,13 +31,9 @@ lock dependent by _employee
 authorization dependent by _employee
 {
 
-  update;
-
   field ( readonly, numbering : managed ) VacationEntitlementUuid;
-  field ( readonly ) EmployeeUuid, AnnualLeave, RemainingDays, PlannedDays;
+  field ( readonly ) EmployeeUuid, AnnualLeave, RemainingDays;
   association _employee;
-
-  determination DetermineRemainingDays on modify { update; association _employee; }
 
   mapping for zljnd_vac_ent corresponding
     {

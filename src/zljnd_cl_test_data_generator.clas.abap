@@ -178,7 +178,7 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     ls_vac_req-applicant_uuid = ls_hans_maier-employee_uuid.
     ls_vac_req-start_date = '20251227'.
     ls_vac_req-end_date = '20251230'.
-    ls_vac_req-vacation_days = '4'.
+    ls_vac_req-vacation_days = '3'.
     ls_vac_req-approver_uuid = ls_lisa_mueller-employee_uuid.
     ls_vac_req-details = 'Weihnachtsurlaub'.
     ls_vac_req-status = 'A'.
@@ -216,7 +216,7 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     ls_vac_req-applicant_uuid = ls_hans_maier-employee_uuid.
     ls_vac_req-start_date = '20260527'.
     ls_vac_req-end_date = '20260614'.
-    ls_vac_req-vacation_days = '14'.
+    ls_vac_req-vacation_days = '12'.
     ls_vac_req-approver_uuid = ls_lisa_mueller-employee_uuid.
     ls_vac_req-details = ''.
     ls_vac_req-status = 'G'.
@@ -233,9 +233,9 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     ls_vac_req-created_by = 'GENERATOR'.
     ls_vac_req-last_changed_by = 'GENERATOR'.
     ls_vac_req-applicant_uuid = ls_hans_maier-employee_uuid.
-    ls_vac_req-start_date = '20251220'.
-    ls_vac_req-end_date = '20251231'.
-    ls_vac_req-vacation_days = '8'.
+    ls_vac_req-start_date = '20261220'.
+    ls_vac_req-end_date = '20261231'.
+    ls_vac_req-vacation_days = '5'.
     ls_vac_req-approver_uuid = ls_lisa_mueller-employee_uuid.
     ls_vac_req-details = 'Winterurlaub'.
     ls_vac_req-status = 'B'.
@@ -254,7 +254,7 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     ls_vac_req-applicant_uuid = ls_petra_schmid-employee_uuid.
     ls_vac_req-start_date = '20261227'.
     ls_vac_req-end_date = '20261231'.
-    ls_vac_req-vacation_days = '3'.
+    ls_vac_req-vacation_days = '4'.
     ls_vac_req-approver_uuid = ls_hans_maier-employee_uuid.
     ls_vac_req-details = 'Weihnachtsurlaub'.
     ls_vac_req-status = 'B'.

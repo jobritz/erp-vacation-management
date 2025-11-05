@@ -16,9 +16,6 @@ CLASS lhc_ZLJND_R_EMPLOYEE DEFINITION INHERITING FROM cl_abap_behavior_handler.
     METHODS determinedaysoff FOR DETERMINE ON MODIFY
       IMPORTING keys FOR VacationRequest~DetermineDaysOff.
 
-    METHODS DetermineRemainingDays FOR DETERMINE ON MODIFY
-      IMPORTING keys FOR VacationEntitlement~DetermineRemainingDays.
-
 ENDCLASS.
 
 CLASS lhc_ZLJND_R_EMPLOYEE IMPLEMENTATION.
@@ -104,44 +101,6 @@ CLASS lhc_ZLJND_R_EMPLOYEE IMPLEMENTATION.
                              %control-VacationDays = if_abap_behv=>mk-on ) ).
 
     ENDLOOP.
-  ENDMETHOD.
-
-  METHOD determineremainingdays.
-
-    READ ENTITY IN LOCAL MODE zljnd_r_vac_ent
-    ALL FIELDS
-    WITH CORRESPONDING #( keys )
-    RESULT DATA(entitlements).
-
-    LOOP AT entitlements REFERENCE INTO DATA(entitlement).
-
-
-      READ ENTITY IN LOCAL MODE zljnd_r_vac_req
-      FIELDS ( VacationDays Status )
-      WITH CORRESPONDING #( keys )
-      RESULT DATA(requests).
-
-      DATA remaining_days TYPE i.
-
-      LOOP AT requests REFERENCE INTO DATA(request).
-        IF request->Status = 'G'.
-          remaining_days = remaining_days + request->VacationDays.
-        ENDIF.
-      ENDLOOP.
-
-      IF entitlement->RemainingDays = remaining_days.
-        CONTINUE.
-      ENDIF.
-
-      MODIFY ENTITY IN LOCAL MODE zljnd_r_vac_ent
-               UPDATE FIELDS ( RemainingDays )
-               WITH VALUE #( FOR key IN keys
-                             ( %tky         = key-%tky
-                               RemainingDays = 10
-                               %control-RemainingDays = if_abap_behv=>mk-on ) ).
-
-    ENDLOOP.
-
   ENDMETHOD.
 
 ENDCLASS.

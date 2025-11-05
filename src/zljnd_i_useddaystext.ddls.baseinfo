@@ -3,6 +3,7 @@
 {
 "FROM":
 [
+"ZLJND_I_USEDDAYS",
 "ZLJND_VAC_ENT"
 ],
 "ASSOCIATED":

@@ -15,7 +15,7 @@ define view entity ZLJND_C_VAC_ENT
       LastChangedAt,
       RemainingDays,
       PlannedDays,
-      BookedDays,
+      UsedDays,
       
       _employee : redirected to parent ZLJND_C_EMPLOYEE
 }

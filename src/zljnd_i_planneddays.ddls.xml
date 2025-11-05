@@ -3,9 +3,9 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DDLS>
-    <DDLNAME>ZLJND_I_VACENTVH</DDLNAME>
+    <DDLNAME>ZLJND_I_PLANNEDDAYS</DDLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
-    <DDTEXT>Value Help for Vacation Entitlements</DDTEXT>
+    <DDTEXT>Value Help for Planned Vacation Days</DDTEXT>
     <SOURCE_TYPE>W</SOURCE_TYPE>
    </DDLS>
   </asx:values>

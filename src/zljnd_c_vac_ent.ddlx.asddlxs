@@ -26,17 +26,17 @@ annotate entity ZLJND_C_VAC_ENT with
   @UI.lineItem: [{ position: 20 }] 
   AnnualLeave;
   
-  @UI.fieldGroup: [{ position: 30, qualifier: 'VacationEntitlements', label: 'Remaing Days' }]
-  @UI.lineItem: [{ position: 30, label: 'Remaing Days' }]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'VacationEntitlements', label: 'Remaining Days' }]
+  @UI.lineItem: [{ position: 30, label: 'Remaining Days' }]
   RemainingDays;
-  
+ 
   @UI.fieldGroup: [{ position: 40, qualifier: 'VacationEntitlements', label: 'Planned Days' }]
   @UI.lineItem: [{ position: 40, label: 'Planned Days' }] 
   PlannedDays;
-  
-  @UI.fieldGroup: [{ position: 50, qualifier: 'VacationEntitlements', label: 'Booked Days' }]
-  @UI.lineItem: [{ position: 50, label: 'Booked Days' }] 
-  BookedDays;
+
+  @UI.fieldGroup: [{ position: 50, qualifier: 'VacationEntitlements', label: 'Used Days' }]
+  @UI.lineItem: [{ position: 50, label: 'Used Days' }] 
+  UsedDays;
   
   @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
   CreatedBy;
