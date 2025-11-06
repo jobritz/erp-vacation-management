@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZLJND_CM_VAC_REQ</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Class Vacation Request App 2</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLJND_CM_VAC_REQ</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Der Antrag wurde erfolgreich genehmigt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLJND_CM_VAC_REQ</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Der Antrag wurde abgelehnt.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLJND_CM_VAC_REQ</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Fehler: Dieser Antrag wurde bereits bearbeitet.</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>
