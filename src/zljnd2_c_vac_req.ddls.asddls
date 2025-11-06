@@ -21,6 +21,8 @@ define root view entity ZLJND2_C_VAC_REQ
       @Search.defaultSearchElement: true
       @Search.fuzzinessThreshold: 0.7
       Details,
+      
+      @ObjectModel.text.element: [ 'StatusText' ]
       Status,
 
 
@@ -30,7 +32,8 @@ define root view entity ZLJND2_C_VAC_REQ
       LastChangedAt,
 
       ApproverName,
-      ApplicantName
+      ApplicantName,
+      StatusText
 
 
 }

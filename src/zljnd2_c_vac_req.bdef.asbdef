@@ -1,0 +1,10 @@
+projection;
+strict ( 2 );
+
+define behavior for ZLJND2_C_VAC_REQ //alias <alias_name>
+{
+  use update;
+
+  use action Approve;
+  use action Reject;
+}

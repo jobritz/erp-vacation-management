@@ -9,6 +9,7 @@ define view entity ZLJND_C_VAC_REQ
       @ObjectModel.text.element: [ 'ApplicantName' ]
       ApplicantUuid,
       @ObjectModel.text.element: [ 'ApproverName' ]
+      @UI.textArrangement: #TEXT_ONLY
       @Consumption.valueHelpDefinition: [{ entity: { name: 'ZLJND_I_ApproverVH', element: 'EmployeeUuid' } }]
       ApproverUuid,
       StartDate,

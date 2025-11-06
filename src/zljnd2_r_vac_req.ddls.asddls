@@ -5,6 +5,7 @@ define root view entity ZLJND2_R_VAC_REQ
   as select from zljnd_vac_req
   association to ZLJND_I_EMPLOYEETEXT    as _approvertext  on $projection.ApproverUuid = _approvertext.employee_uuid
   association to ZLJND_I_EMPLOYEETEXT    as _applicanttext on $projection.ApplicantUuid = _applicanttext.employee_uuid
+  association to ZLJND_I_StatusText  as _statustext on $projection.VacationRequestUuid = _statustext.vacation_request_uuid
  {
   key vacation_request_uuid as VacationRequestUuid,
       applicant_uuid        as ApplicantUuid,
@@ -22,7 +23,8 @@ define root view entity ZLJND2_R_VAC_REQ
       last_changed_at       as LastChangedAt,
       
        _approvertext.Name     as ApproverName,
-      _applicanttext.Name    as ApplicantName
+      _applicanttext.Name    as ApplicantName,
+      _statustext.StatusText as StatusText
       
       
       

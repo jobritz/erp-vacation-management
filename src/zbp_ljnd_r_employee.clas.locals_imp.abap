@@ -43,12 +43,50 @@ CLASS lhc_ZLJND_R_EMPLOYEE IMPLEMENTATION.
         APPEND VALUE #( %tky = vacationrequest-%tky ) TO failed-vacationrequest.
 
       ENDIF.
+
+      IF vacationrequest-StartDate+0(4) <> vacationrequest-EndDate+0(4).
+
+        message = NEW zljnd_cm_employee( textid = zljnd_cm_employee=>different_years ).
+
+        APPEND VALUE #( %tky = vacationrequest-%tky
+                        %msg = message ) TO reported-vacationrequest.
+
+        APPEND VALUE #( %tky = vacationrequest-%tky ) TO failed-vacationrequest.
+
+      ENDIF.
     ENDLOOP.
 
   ENDMETHOD.
 
   METHOD notenoughvacationleft.
 
+    DATA message TYPE REF TO zljnd_cm_employee.
+
+    READ ENTITY IN LOCAL MODE zljnd_r_vac_req
+    ALL FIELDS
+    WITH CORRESPONDING #( keys )
+    RESULT DATA(vacationrequests).
+
+    LOOP AT vacationrequests INTO DATA(vacationrequest).
+
+      TRY.
+          DATA(calendar) = cl_fhc_calendar_runtime=>create_factorycalendar_runtime( 'SAP_DE_BW' ).
+          DATA(vacation_days) = ( calendar->calc_workingdays_between_dates( iv_start = vacationrequest-StartDate iv_end = vacationrequest-EndDate ) + 1 ) .
+        CATCH cx_fhc_runtime.
+          CONTINUE.
+      ENDTRY.
+
+      SELECT SINGLE FROM zljnd_r_vac_ent FIELDS RemainingDays WHERE CurrentYear = @vacationrequest-StartDate+0(4) INTO @DATA(remaining_days).
+
+      IF remaining_days < vacation_days.
+        message = NEW zljnd_cm_employee( textid = zljnd_cm_employee=>not_enough_vacation_left ).
+
+        APPEND VALUE #( %tky = vacationrequest-%tky
+                        %msg = message ) TO reported-vacationrequest.
+
+        APPEND VALUE #( %tky = vacationrequest-%tky ) TO failed-vacationrequest.
+      ENDIF.
+    ENDLOOP.
   ENDMETHOD.
 
   METHOD determinestatus.
@@ -56,11 +94,11 @@ CLASS lhc_ZLJND_R_EMPLOYEE IMPLEMENTATION.
     READ ENTITY IN LOCAL MODE zljnd_r_vac_req
     FIELDS ( Status )
     WITH CORRESPONDING #( keys )
-    RESULT DATA(requests).
+    RESULT DATA(vacationrequests).
 
-    LOOP AT requests REFERENCE INTO DATA(request).
+    LOOP AT vacationrequests INTO DATA(vacationrequest).
 
-      IF request->Status = 'B'.
+      IF vacationrequest-Status = 'B'.
         CONTINUE.
       ENDIF.
 
@@ -78,18 +116,18 @@ CLASS lhc_ZLJND_R_EMPLOYEE IMPLEMENTATION.
     READ ENTITY IN LOCAL MODE zljnd_r_vac_req
     ALL FIELDS
     WITH CORRESPONDING #( keys )
-    RESULT DATA(requests).
+    RESULT DATA(vacationrequests).
 
-    LOOP AT requests REFERENCE INTO DATA(request).
+    LOOP AT vacationrequests INTO DATA(vacationrequest).
 
       TRY.
           DATA(calendar) = cl_fhc_calendar_runtime=>create_factorycalendar_runtime( 'SAP_DE_BW' ).
-          DATA(vacation_days) = ( calendar->calc_workingdays_between_dates( iv_start = request->StartDate iv_end = request->EndDate ) + 1 ) .
+          DATA(vacation_days) = ( calendar->calc_workingdays_between_dates( iv_start = vacationrequest-StartDate iv_end = vacationrequest-EndDate ) + 1 ) .
         CATCH cx_fhc_runtime.
           CONTINUE.
       ENDTRY.
 
-      IF request->VacationDays = vacation_days.
+      IF vacationrequest-VacationDays = vacation_days.
         CONTINUE.
       ENDIF.
 

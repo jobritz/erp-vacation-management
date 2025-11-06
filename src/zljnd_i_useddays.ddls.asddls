@@ -8,8 +8,8 @@ define view entity ZLJND_I_UsedDays
       applicant_uuid              as ApplicantUuid,
       substring(start_date, 1, 4) as RequestYear,
       vacation_days               as FilteredDays
-      
+
 }
 where
-      status   = 'G'
-  and end_date < $session.system_date
+      end_date < $session.system_date
+  and status   != 'A'

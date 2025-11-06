@@ -5,7 +5,7 @@
   typeName: 'Vacation Request',
   title.value: 'Details'
 }
-
+@UI.presentationVariant: [{sortOrder: [{ by: 'StartDate', direction: #DESC }]}]
 annotate entity ZLJND_C_VAC_REQ with
 {
 

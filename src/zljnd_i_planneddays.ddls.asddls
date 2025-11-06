@@ -10,8 +10,5 @@ define view entity ZLJND_I_PlannedDays
       vacation_days               as FilteredDays
 }
 where
-       start_date > $session.system_date
-  and(
-       status     = 'B'
-    or status     = 'G'
-  )
+      start_date > $session.system_date
+  and status     != 'A'

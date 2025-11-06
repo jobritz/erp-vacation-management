@@ -5,6 +5,7 @@
   typeName: 'Vacation Entitlement',
   title.value: 'CurrentYear'
 }
+@UI.presentationVariant: [{sortOrder: [{ by: 'CurrentYear', direction: #DESC }]}]
 annotate entity ZLJND_C_VAC_ENT with
 {
     @UI.facet:

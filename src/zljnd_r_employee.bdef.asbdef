@@ -58,7 +58,7 @@ authorization dependent by _employee
   delete;
 
   validation ValidateDates on save { create; update; }
-  validation NotEnoughVacationLeft on save { create; }
+  validation NotEnoughVacationLeft on save { create; update; }
 
   determination DetermineStatus on modify { create; update; }
   determination DetermineDaysOff on modify { create; update; }

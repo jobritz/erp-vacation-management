@@ -12,13 +12,19 @@
      <SPRSL>E</SPRSL>
      <ARBGB>ZLJND_EMPLOYEE</ARBGB>
      <MSGNR>001</MSGNR>
-     <TEXT>Begin date must be before end date</TEXT>
+     <TEXT>Start date must be before end date</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
      <ARBGB>ZLJND_EMPLOYEE</ARBGB>
      <MSGNR>002</MSGNR>
-     <TEXT>You do not have enough vacation days.</TEXT>
+     <TEXT>You do not have enough remaining vacation days</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLJND_EMPLOYEE</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Start and end date have to be in the same year</TEXT>
     </T100>
    </T100>
   </asx:values>

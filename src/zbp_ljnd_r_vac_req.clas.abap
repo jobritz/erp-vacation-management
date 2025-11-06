@@ -1,0 +1,5 @@
+CLASS zbp_ljnd_r_vac_req DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zljnd2_r_vac_req.
+ENDCLASS.
+
+CLASS zbp_ljnd_r_vac_req IMPLEMENTATION.
+ENDCLASS.

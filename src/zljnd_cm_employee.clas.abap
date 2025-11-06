@@ -19,7 +19,7 @@ CLASS zljnd_cm_employee DEFINITION
         attr4  TYPE scx_attrname VALUE '',
       END OF invalid_dates.
 
-      CONSTANTS:
+    CONSTANTS:
       BEGIN OF not_enough_vacation_left,
         msg_id TYPE symsgid VALUE 'ZLJND_EMPLOYEE',
         msgno  TYPE symsgno VALUE '002',
@@ -27,14 +27,24 @@ CLASS zljnd_cm_employee DEFINITION
         attr2  TYPE scx_attrname VALUE '',
         attr3  TYPE scx_attrname VALUE '',
         attr4  TYPE scx_attrname VALUE '',
-      END OF NOT_ENOUGH_VACATION_LEFT.
+      END OF not_enough_vacation_left.
+
+    CONSTANTS:
+      BEGIN OF different_years,
+        msg_id TYPE symsgid VALUE 'ZLJND_EMPLOYEE',
+        msgno  TYPE symsgno VALUE '003',
+        attr1  TYPE scx_attrname VALUE '',
+        attr2  TYPE scx_attrname VALUE '',
+        attr3  TYPE scx_attrname VALUE '',
+        attr4  TYPE scx_attrname VALUE '',
+      END OF different_years.
 
 
-METHODS constructor
-  IMPORTING
-    severity  TYPE if_abap_behv_message=>t_severity DEFAULT if_abap_behv_message=>severity-error
-    textid    LIKE if_t100_message=>t100key DEFAULT if_t100_message=>default_textid
-    !previous LIKE previous OPTIONAL.
+    METHODS constructor
+      IMPORTING
+        severity  TYPE if_abap_behv_message=>t_severity DEFAULT if_abap_behv_message=>severity-error
+        textid    LIKE if_t100_message=>t100key DEFAULT if_t100_message=>default_textid
+        !previous LIKE previous OPTIONAL.
 
   PROTECTED SECTION.
   PRIVATE SECTION.

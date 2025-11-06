@@ -1,4 +1,4 @@
-managed implementation in class ZXX_bp_travel unique;
+managed implementation in class ZBP_LJND_R_VAC_REQ unique;
 strict ( 2 );
 
 define behavior for ZLJND2_R_VAC_REQ alias VacationRequest
@@ -10,8 +10,19 @@ authorization master ( instance )
   update;
 
 
+   action Approve result [1] $self;
+    action Reject result [1] $self;
+
+  //validation ValidateStatus on save { update; }
+ // determination SetApproval on modify { update; }
+
+
 
   field ( readonly, numbering : managed ) VacationRequestUuid;
+  field ( readonly) CreatedAt, CreatedBy, ApplicantUuid, ApproverUuid;
+field (readonly) LastChangedBy, LastChangedAt;
+field (readonly) StartDate, EndDate, VacationDays, Details;
+
 
   mapping for zljnd_vac_req corresponding
     {
