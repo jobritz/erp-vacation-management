@@ -79,7 +79,9 @@ CLASS lhc_ZLJND_R_EMPLOYEE IMPLEMENTATION.
       SELECT SINGLE FROM zljnd_r_vac_ent FIELDS RemainingDays WHERE CurrentYear = @vacationrequest-StartDate+0(4) INTO @DATA(remaining_days).
 
       IF remaining_days < vacation_days.
-        message = NEW zljnd_cm_employee( textid = zljnd_cm_employee=>not_enough_vacation_left ).
+        message = NEW zljnd_cm_employee( textid = zljnd_cm_employee=>not_enough_vacation_left
+                                         remaining_vacation_days = remaining_days
+                                         requested_vacation_days = vacation_days ).
 
         APPEND VALUE #( %tky = vacationrequest-%tky
                         %msg = message ) TO reported-vacationrequest.

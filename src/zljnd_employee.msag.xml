@@ -18,7 +18,7 @@
      <SPRSL>E</SPRSL>
      <ARBGB>ZLJND_EMPLOYEE</ARBGB>
      <MSGNR>002</MSGNR>
-     <TEXT>You do not have enough remaining vacation days</TEXT>
+     <TEXT>You only have &amp;1 remaining vacation days (requested vacation days: &amp;2)</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
