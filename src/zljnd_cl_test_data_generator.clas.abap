@@ -12,7 +12,9 @@ ENDCLASS.
 
 
 
-CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
+CLASS ZLJND_CL_TEST_DATA_GENERATOR IMPLEMENTATION.
+
+
   METHOD if_oo_adt_classrun~main.
     DATA ls_hans_maier TYPE zljnd_employee.
     DATA ls_lisa_mueller TYPE zljnd_employee.
@@ -277,5 +279,4 @@ CLASS zljnd_cl_test_data_generator IMPLEMENTATION.
     out->write( |Inserted Vacation Requests: { sy-dbcnt } | ).
 
   ENDMETHOD.
-
 ENDCLASS.

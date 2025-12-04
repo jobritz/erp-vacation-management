@@ -12,7 +12,7 @@
      <SPRSL>E</SPRSL>
      <ARBGB>ZLJND_CM_VAC_REQ</ARBGB>
      <MSGNR>001</MSGNR>
-     <TEXT>Der Antrag wurde erfolgreich genehmigt.</TEXT>
+     <TEXT>Test Nachricht</TEXT>
     </T100>
     <T100>
      <SPRSL>E</SPRSL>
@@ -25,6 +25,12 @@
      <ARBGB>ZLJND_CM_VAC_REQ</ARBGB>
      <MSGNR>003</MSGNR>
      <TEXT>Fehler: Dieser Antrag wurde bereits bearbeitet.</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZLJND_CM_VAC_REQ</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Der Antrag wurde genehmigt.</TEXT>
     </T100>
    </T100>
   </asx:values>

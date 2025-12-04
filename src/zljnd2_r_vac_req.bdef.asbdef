@@ -10,18 +10,20 @@ authorization master ( instance )
   update;
 
 
-   action Approve result [1] $self;
-    action Reject result [1] $self;
+  action Approve result [1] $self;
+  action Reject result [1] $self;
+  action ApplicationProcessed result [1] $self;
 
   //validation ValidateStatus on save { update; }
- // determination SetApproval on modify { update; }
+  // determination SetApproval on modify { update; }
 
+  //static action ShowTestMessage;
 
 
   field ( readonly, numbering : managed ) VacationRequestUuid;
-  field ( readonly) CreatedAt, CreatedBy, ApplicantUuid, ApproverUuid;
-field (readonly) LastChangedBy, LastChangedAt;
-field (readonly) StartDate, EndDate, VacationDays, Details;
+  field ( readonly ) CreatedAt, CreatedBy, ApplicantUuid, ApproverUuid;
+  field ( readonly ) LastChangedBy, LastChangedAt;
+  field ( readonly ) StartDate, EndDate, VacationDays, Details;
 
 
   mapping for zljnd_vac_req corresponding

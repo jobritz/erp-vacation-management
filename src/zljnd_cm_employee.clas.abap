@@ -57,7 +57,9 @@ ENDCLASS.
 
 
 
-CLASS zljnd_cm_employee IMPLEMENTATION.
+CLASS ZLJND_CM_EMPLOYEE IMPLEMENTATION.
+
+
   METHOD constructor ##ADT_SUPPRESS_GENERATION.
 
     super->constructor( previous = previous ).
@@ -68,5 +70,4 @@ CLASS zljnd_cm_employee IMPLEMENTATION.
     me->requested_vacation_days = requested_vacation_days.
 
   ENDMETHOD.
-
 ENDCLASS.

@@ -1,69 +1,68 @@
 @Metadata.layer: #CUSTOMER
 @UI.headerInfo:
 {
- typeNamePlural: 'Vacation Requests',
+  typeNamePlural: 'Vacation Requests',
   typeName: 'Vacation Request',
   title.value: 'Details'
-
-   }
+}
+   
 annotate view ZLJND2_C_VAC_REQ with
 
 
 {
 
   @UI.facet:
-  [ { position : 10, targetQualifier: 'VacReqDetails', label: 'Vacation Request Details', type: #FIELDGROUP_REFERENCE },
-   { position : 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE } ]
+  [
+    { position : 10, targetQualifier: 'VacReqDetails', label: 'Vacation Request Details', type: #FIELDGROUP_REFERENCE },
+    { position : 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
+  ]
 
-  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
-  VacationRequestUuid;
- 
- @EndUserText.label: 'Applicant'
- @UI.lineItem: [{ position: 10 }]
-  @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
-  @UI.selectionField: [{ position: 10  }]
+  //@UI.lineItem: [ { position: 10, dataAction: 'ShowTestMessage', label: 'Show Test Message', type: #FOR_ACTION } ]
+
+  @UI.lineItem: [{ position: 10, label: 'Applicant' }]
+  @UI.fieldGroup: [{ position: 10, qualifier: 'VacReqDetails', label: 'Applicant' }]
+  @UI.selectionField: [{ position: 10 }]
   ApplicantUuid;
-  
-  
+
+
   @UI.lineItem: [{ position: 20,  label: 'Approver' }]
-  @UI.fieldGroup: [{ position: 30, qualifier: 'AdminData' }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'VacReqDetails', label: 'Approver' }]
   ApproverUuid;
 
   @UI.lineItem: [{ position: 30 }]
-  @UI.fieldGroup: [{ position: 10, qualifier: 'VacReqDetails' }]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'VacReqDetails' }]
   StartDate;
 
   @UI.lineItem: [{ position: 40 }]
-  @UI.fieldGroup: [{ position: 20, qualifier: 'VacReqDetails' }]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'VacReqDetails' }]
   EndDate;
 
   @UI.lineItem: [{ position: 50 }]
-  @UI.fieldGroup: [{ position: 30, qualifier: 'VacReqDetails' }]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'VacReqDetails' }]
   VacationDays;
 
   @UI.lineItem: [{ position: 60 }]
-  @UI.fieldGroup: [{ position: 40, qualifier: 'VacReqDetails' }]
+  @UI.fieldGroup: [{ position: 60, qualifier: 'VacReqDetails' }]
   Details;
 
   @UI.lineItem: [{ position: 70 }]
   @UI.selectionField: [{ position: 20 }]
-  @UI.fieldGroup: [{ position: 50, qualifier: 'VacReqDetails' }]
+  @UI.fieldGroup: [{ position: 70, qualifier: 'VacReqDetails' }]
   Status;
 
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
+  VacationRequestUuid;
 
-  @UI.fieldGroup: [{ position: 40, qualifier: 'AdminData' }]
+  @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
   CreatedBy;
 
-
-  @UI.fieldGroup: [{ position: 50, qualifier: 'AdminData' }]
+  @UI.fieldGroup: [{ position: 30, qualifier: 'AdminData' }]
   CreatedAt;
 
-
-  @UI.fieldGroup: [{ position: 60, qualifier: 'AdminData' }]
+  @UI.fieldGroup: [{ position: 40, qualifier: 'AdminData' }]
   LastChangedBy;
 
-
-  @UI.fieldGroup: [{ position: 70, qualifier: 'AdminData' }]
+  @UI.fieldGroup: [{ position: 50, qualifier: 'AdminData' }]
   LastChangedAt;
 
 }
