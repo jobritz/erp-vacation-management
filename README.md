@@ -18,7 +18,7 @@ Alle Objekte sollen mit dem Kürzel **ZLJND(2)** beginnen:
 
 - **Z** ist Pflichtbestandteil
 - **LJND** steht für: Laurenz, Jonas, Niklas, Dominik
-- **2** für die 2. App enthalt das Kürzel noch eine 2
+- **2**: für die 2. App enthalt das Kürzel noch eine 2
 
 ### Tabellen
 
