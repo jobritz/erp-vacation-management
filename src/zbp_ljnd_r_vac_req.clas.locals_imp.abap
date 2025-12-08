@@ -35,8 +35,6 @@ CLASS lhc_VacationRequest IMPLEMENTATION.
   METHOD Approve.
     DATA message TYPE REF TO zljnd_cm_vac_req.
 
-
-
     READ ENTITY IN LOCAL MODE zljnd2_r_vac_req
     FIELDS ( Status )
     WITH CORRESPONDING #( keys )
@@ -45,11 +43,11 @@ CLASS lhc_VacationRequest IMPLEMENTATION.
     LOOP AT reqs REFERENCE INTO DATA(req).
 
       IF req->Status <> 'B'.
-        message = NEW zljnd_cm_vac_req( severity = if_abap_behv_message=>severity-success
-                                            textid = zljnd_cm_vac_req=>showapplicationwasprocessed ).
+        message = NEW zljnd_cm_vac_req( severity = if_abap_behv_message=>severity-error
+                                        textid = zljnd_cm_vac_req=>showapplicationwasprocessed ).
         APPEND VALUE #( %tky = req->%tky
-        %element = VALUE #( Status = if_abap_behv=>mk-on )
-        %msg = message ) TO reported-vacationrequest.
+                        %element = VALUE #( Status = if_abap_behv=>mk-on )
+                        %msg = message ) TO reported-vacationrequest.
 
         APPEND VALUE #( %tky = req->%tky ) TO failed-vacationrequest.
         CONTINUE.
@@ -61,23 +59,23 @@ CLASS lhc_VacationRequest IMPLEMENTATION.
                                       textid = zljnd_cm_vac_req=>showapproving ).
 
       APPEND VALUE #( %tky = req->%tky
-      %element = VALUE #( Status = if_abap_behv=>mk-on )
-      %msg = message ) TO reported-vacationrequest.
+                      %element = VALUE #( Status = if_abap_behv=>mk-on )
+                      %msg = message ) TO reported-vacationrequest.
 
-      APPEND VALUE #( %tky = req->%tky ) TO result.
     ENDLOOP.
 
     MODIFY ENTITY IN LOCAL MODE zljnd2_r_vac_req
-    UPDATE FIELDS ( STatus )
+    UPDATE FIELDS ( Status )
     WITH VALUE #( FOR r IN reqs ( %tky = r-%tky Status = r-Status ) ).
 
+    result = VALUE #( FOR r IN reqs
+                      ( %tky   = r-%tky
+                        %param = r ) ).
 
   ENDMETHOD.
 
   METHOD Reject.
     DATA message TYPE REF TO zljnd_cm_vac_req.
-
-
 
     READ ENTITY IN LOCAL MODE zljnd2_r_vac_req
     FIELDS ( Status )
@@ -87,12 +85,12 @@ CLASS lhc_VacationRequest IMPLEMENTATION.
     LOOP AT reqs REFERENCE INTO DATA(req).
 
       IF req->Status <> 'B'.
-        message = NEW zljnd_cm_vac_req( severity = if_abap_behv_message=>severity-success
-                                          textid = zljnd_cm_vac_req=>showapplicationwasprocessed ).
+        message = NEW zljnd_cm_vac_req( severity = if_abap_behv_message=>severity-error
+                                        textid = zljnd_cm_vac_req=>showapplicationwasprocessed ).
 
         APPEND VALUE #( %tky = req->%tky
-        %element = VALUE #( Status = if_abap_behv=>mk-on )
-        %msg = message ) TO reported-vacationrequest.
+                        %element = VALUE #( Status = if_abap_behv=>mk-on )
+                        %msg = message ) TO reported-vacationrequest.
 
         APPEND VALUE #( %tky = req->%tky ) TO failed-vacationrequest.
         CONTINUE.
@@ -101,19 +99,21 @@ CLASS lhc_VacationRequest IMPLEMENTATION.
       req->Status = 'A'.
 
       message = NEW zljnd_cm_vac_req( severity = if_abap_behv_message=>severity-success
-                                      textid = zljnd_cm_vac_req=>showapproving ).
+                                      textid = zljnd_cm_vac_req=>showrejection ).
 
       APPEND VALUE #( %tky = req->%tky
-      %element = VALUE #( Status = if_abap_behv=>mk-on )
-      %msg = message ) TO reported-vacationrequest.
+                      %element = VALUE #( Status = if_abap_behv=>mk-on )
+                      %msg = message ) TO reported-vacationrequest.
 
-      APPEND VALUE #( %tky = req->%tky ) TO result.
     ENDLOOP.
 
     MODIFY ENTITY IN LOCAL MODE zljnd2_r_vac_req
     UPDATE FIELDS ( Status )
     WITH VALUE #( FOR r IN reqs ( %tky = r-%tky Status = r-Status ) ).
 
+    result = VALUE #( FOR r IN reqs
+                      ( %tky   = r-%tky
+                        %param = r ) ).
 
   ENDMETHOD.
 

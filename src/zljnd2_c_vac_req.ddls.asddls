@@ -4,6 +4,7 @@
 @Search.searchable: true
 
 define root view entity ZLJND2_C_VAC_REQ
+  provider contract transactional_query
   as projection on ZLJND2_R_VAC_REQ
 {
   key VacationRequestUuid,
@@ -11,8 +12,8 @@ define root view entity ZLJND2_C_VAC_REQ
       @ObjectModel.text.element: [ 'ApplicantName' ]
       @UI.textArrangement: #TEXT_ONLY
       ApplicantUuid,
-      @UI.textArrangement: #TEXT_ONLY
       @ObjectModel.text.element: [ 'ApproverName' ]
+      @UI.textArrangement: #TEXT_ONLY
       ApproverUuid,
       StartDate,
       EndDate,
@@ -24,7 +25,6 @@ define root view entity ZLJND2_C_VAC_REQ
       
       @ObjectModel.text.element: [ 'StatusText' ]
       Status,
-
 
       CreatedBy,
       CreatedAt,

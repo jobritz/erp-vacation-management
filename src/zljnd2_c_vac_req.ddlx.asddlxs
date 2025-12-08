@@ -7,8 +7,6 @@
 }
    
 annotate view ZLJND2_C_VAC_REQ with
-
-
 {
 
   @UI.facet:
@@ -17,13 +15,19 @@ annotate view ZLJND2_C_VAC_REQ with
     { position : 20, targetQualifier: 'AdminData', label: 'Administrative Data', type: #FIELDGROUP_REFERENCE }
   ]
 
-  //@UI.lineItem: [ { position: 10, dataAction: 'ShowTestMessage', label: 'Show Test Message', type: #FOR_ACTION } ]
-
-  @UI.lineItem: [{ position: 10, label: 'Applicant' }]
+  @UI.lineItem: 
+  [ 
+    { position: 10, dataAction: 'Approve', label: 'Approve', type: #FOR_ACTION },
+    { position: 20, dataAction: 'Reject', label: 'Reject', type: #FOR_ACTION } 
+  ]
+  
+  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
+  VacationRequestUuid;
+    
   @UI.fieldGroup: [{ position: 10, qualifier: 'VacReqDetails', label: 'Applicant' }]
+  @UI.lineItem: [{ position: 10, label: 'Applicant' }]
   @UI.selectionField: [{ position: 10 }]
   ApplicantUuid;
-
 
   @UI.lineItem: [{ position: 20,  label: 'Approver' }]
   @UI.fieldGroup: [{ position: 20, qualifier: 'VacReqDetails', label: 'Approver' }]
@@ -49,9 +53,6 @@ annotate view ZLJND2_C_VAC_REQ with
   @UI.selectionField: [{ position: 20 }]
   @UI.fieldGroup: [{ position: 70, qualifier: 'VacReqDetails' }]
   Status;
-
-  @UI.fieldGroup: [{ position: 10, qualifier: 'AdminData' }]
-  VacationRequestUuid;
 
   @UI.fieldGroup: [{ position: 20, qualifier: 'AdminData' }]
   CreatedBy;
